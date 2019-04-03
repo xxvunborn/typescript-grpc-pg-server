@@ -15,9 +15,9 @@ const pd = protoLoader.loadSync(PROTO_PATH);
 const loader = grpc.loadPackageDefinition(pd);
 const hello_proto = loader.helloworld;
 function main() {
-    const client = new hello_proto.Greeter("localhost:50051", grpc.credentials.createInsecure());
+    const client = new hello_proto.Greeter('localhost:50051', grpc.credentials.createInsecure());
     client.sayHello({ name: 'Chris' }, function (err, response) {
-        console.log("Greetings: " + response.message);
+        console.log('Greetings: ' + response.message);
     });
 }
 main();
