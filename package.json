@@ -14,12 +14,14 @@
   "scripts": {
     "build": "tsc",
     "start": "node ./dist/server.js",
-    "start-client": "node ./dist/client.js",
     "dev": "tsc-watch --onsuccess \"node ./dist/src/server.js\"",
-    "dev-client": "tsc-watch client.ts --onsuccess \"node ./dist/client.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "testWithCoverage": "jest --coverage"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "jest": "^24.7.0",
+    "ts-jest": "^24.0.1",
     "tsc-watch": "^2.1.2"
   },
   "keywords": [],
