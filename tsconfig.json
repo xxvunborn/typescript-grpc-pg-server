@@ -1,0 +1,17 @@
+{
+  "compileOnsave": true,
+  "autoFixOnSave": true,
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./dist",
+    "removeComments": true,
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "files": [
+    "./src/server.ts",
+    "client.ts"
+  ]
+}
