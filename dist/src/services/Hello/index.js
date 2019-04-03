@@ -3,6 +3,5 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const App_1 = __importDefault(require("./App"));
-const app = new App_1.default(50051);
-app.start();
+const Hello_1 = __importDefault(require("./Hello"));
+exports.default = Hello_1.default;
