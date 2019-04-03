@@ -25,3 +25,9 @@ run client:
 ```
 npm run dev-client
 ```
+
+
+# bibliography 
+```
+[1] https://github.com/svengau/grpc-graphql-sample
+```
