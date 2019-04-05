@@ -28,8 +28,8 @@ class App {
     }
     start() {
         return __awaiter(this, void 0, void 0, function* () {
-            this.server = new mali_1.default(PROTO_PATH, "Todo");
-            this.server.use(Todo_1.default);
+            this.server = new mali_1.default(PROTO_PATH, "Todos");
+            this.server.use({ Get: Todo_1.default });
             this.server.start(`0.0.0.0:${this.port}`);
             console.log(`Greeter service running at: 0.0.0.0:${this.port}`);
         });

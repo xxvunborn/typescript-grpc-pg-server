@@ -11,7 +11,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const pg_1 = require("pg");
 class Postgres {
     constructor() {
-        this.user = 123;
+        this.user = 'postgres';
         this.host = "localhost";
         this.port = 5432;
         this.database = "test";

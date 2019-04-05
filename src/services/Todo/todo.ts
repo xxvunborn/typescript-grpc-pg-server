@@ -1,7 +1,7 @@
 import * as grpc from "grpc";
 import Postgres from "../../database/postgres";
 
-async function Get(ctx: any) {
+export default async function(ctx: any) {
   if (ctx.req.id) {
     const db = new Postgres();
     db.start();
@@ -10,9 +10,10 @@ async function Get(ctx: any) {
   }
 }
 
-async function Create(ctx: any) {
-  const db = new Postgres();
-  db.start();
-  ctx.res = db.Create(ctx.req);
-  db.stop();
-}
+//export async function Create(ctx: any) {
+  //const db = new Postgres();
+  //db.start();
+  //ctx.res = db.Create(ctx.req);
+  //db.stop();
+//}
+

@@ -9,7 +9,7 @@ class Postgres {
   password: string;
 
   public constructor() {
-    this.user = 123
+    this.user = 'postgres'
     this.host = "localhost";
     this.port = 5432;
     this.database = "test";

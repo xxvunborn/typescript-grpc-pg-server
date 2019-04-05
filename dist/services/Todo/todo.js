@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const postgres_1 = __importDefault(require("../../database/postgres"));
-function Get(ctx) {
+function default_1(ctx) {
     return __awaiter(this, void 0, void 0, function* () {
         if (ctx.req.id) {
             const db = new postgres_1.default();
@@ -22,11 +22,4 @@ function Get(ctx) {
         }
     });
 }
-function Create(ctx) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const db = new postgres_1.default();
-        db.start();
-        ctx.res = db.Create(ctx.req);
-        db.stop();
-    });
-}
+exports.default = default_1;
