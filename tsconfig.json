@@ -10,8 +10,5 @@
     "strict": true,
     "esModuleInterop": true
   },
-  "files": [
-    "./src/server.ts",
-    "client.ts"
-  ]
+  "files": ["./src/server.ts"]
 }

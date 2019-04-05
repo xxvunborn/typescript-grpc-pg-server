@@ -20,16 +20,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const path = __importStar(require("path"));
 const mali_1 = __importDefault(require("mali"));
-const Hello_1 = __importDefault(require("./services/Hello"));
-const PROTO_PATH = path.resolve(__dirname, "../../protos/helloworld.proto");
+const Todo_1 = __importDefault(require("./services/Todo"));
+const PROTO_PATH = path.resolve(__dirname, "../protos/todo.proto");
 class App {
     constructor(port) {
         this.port = port;
     }
     start() {
         return __awaiter(this, void 0, void 0, function* () {
-            this.server = new mali_1.default(PROTO_PATH, "Greeter");
-            this.server.use({ sayHello: Hello_1.default });
+            this.server = new mali_1.default(PROTO_PATH, "Todo");
+            this.server.use(Todo_1.default);
             this.server.start(`0.0.0.0:${this.port}`);
             console.log(`Greeter service running at: 0.0.0.0:${this.port}`);
         });

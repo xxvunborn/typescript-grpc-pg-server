@@ -6,15 +6,17 @@
   "dependencies": {
     "@grpc/proto-loader": "^0.3.0",
     "@types/node": "^11.13.0",
+    "@types/pg": "^7.4.14",
     "grpc": "^1.16.1",
     "mali": "^0.10.0",
+    "pg": "^7.9.0",
     "tsc": "^1.20150623.0",
     "typescript": "^3.4.1"
   },
   "scripts": {
     "build": "tsc",
     "start": "node ./dist/server.js",
-    "dev": "tsc-watch --onsuccess \"node ./dist/src/server.js\"",
+    "dev": "tsc-watch --onsuccess \"node ./dist/server.js\"",
     "test": "jest",
     "testWithCoverage": "jest --coverage"
   },

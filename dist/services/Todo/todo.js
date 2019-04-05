@@ -7,10 +7,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-function default_1(ctx) {
+const postgres_1 = __importDefault(require("../../database/postgres"));
+function Get(ctx) {
     return __awaiter(this, void 0, void 0, function* () {
-        ctx.res = { message: "Hello: " + ctx.req.name };
+        if (ctx.req.id) {
+            const db = new postgres_1.default();
+            db.start();
+            ctx.res = db.Get(ctx.req.id);
+            db.stop();
+        }
     });
 }
-exports.default = default_1;
+function Create(ctx) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const db = new postgres_1.default();
+        db.start();
+        ctx.res = db.Create(ctx.req);
+        db.stop();
+    });
+}
