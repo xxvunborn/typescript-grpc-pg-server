@@ -18,7 +18,7 @@ class App {
   public async start(this: App) {
 
     const db = new DB(); 
-    const crud = new CRUD(db);
+    const crud = new CRUD(db.client);
     const services = new SERVICES(crud);
 
     this.server = new Mali(PROTO_PATH, "Todos");
