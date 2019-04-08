@@ -6,7 +6,7 @@ service Todos {
   rpc Create (CreateRequest) returns (CreateResponse) {}
   rpc Update (UpdateRequest) returns (UpdateResponse) {}
   rpc Delete (DeleteRequest) returns (DeleteResponse) {}
-  rpc Get (GetRequest) returns (GetResponse) {}
+  rpc GetById (GetRequest) returns (GetResponse) {}
 }
 
 message Todo {

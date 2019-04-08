@@ -9,11 +9,13 @@ class Postgres {
   password: string;
 
   public constructor() {
-    this.user = 'postgres'
+    this.user = "acidlabs"
     this.host = "localhost";
     this.port = 5432;
     this.database = "test";
     this.password = "";
+
+		this.start()
   }
 
   public async start() {
@@ -30,30 +32,6 @@ class Postgres {
 
   public async stop() {
     this.client.end();
-  }
-
-  public async Get(todo_id: number) {
-    this.client.query("SELECT $1 FROM todo", todo_id, (err: any, res: any) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(res);
-      }
-    });
-  }
-
-  public async Create(todo: any) {
-    this.client.query(
-      "INSERT into todo (name) VALUES ($1)",
-      todo.name,
-      (err: any, res: any) => {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log(res);
-        }
-      }
-    );
   }
 }
 
