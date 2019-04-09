@@ -10,7 +10,7 @@ class Crud {
 
   public GetById(todos_id: number) {
     return new Promise((resolve, reject) => {
-      this.db.query("SELECT * FROM todos WHERE db = $1", [todos_id], (err: any, res: any) => {
+      this.db.query("SELECT * FROM todos WHERE id = $1", [todos_id], (err: any, res: any) => {
         if (err) {
           console.log(err)
           return reject(err)

@@ -7,15 +7,14 @@ class Services {
     this.crud = crud
     //console.log(crud)
 
-    this.GetById("1",crud)
   }
 
-  public async GetById(ctx: any, crud:any) {
-      const todo_id = 1
-      //console.log(this.crud.GetById(1))
-      const result = crud.GetById(todo_id)
-      ctx.res = result
-      //resolve(ctx.res = {name: "hola"})
+  public GetById = async( ctx: any) => {
+    const todo_id = 1
+    console.log(this)
+    const result = this.crud.GetById(todo_id)
+    ctx.res = result
+    //resolve(ctx.res = {name: "hola"})
   }
 
   public async GetAll(ctx: any) {

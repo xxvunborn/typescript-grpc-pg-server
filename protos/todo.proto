@@ -44,5 +44,6 @@ message GetRequest {
 }
 
 message GetResponse {
-  string name= 1;
+  /*string name= 1;*/
+  Todo data = 1;
 }
