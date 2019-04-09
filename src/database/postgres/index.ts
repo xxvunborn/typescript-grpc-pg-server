@@ -8,6 +8,7 @@ class Postgres {
   database: string;
   password: string;
 
+
   public constructor() {
     this.user = "acidlabs"
     this.host = "localhost";
@@ -15,8 +16,9 @@ class Postgres {
     this.database = "test";
     this.password = "";
 
-		this.start()
+    this.start()
   }
+
 
   public async start() {
     this.client = new Client({

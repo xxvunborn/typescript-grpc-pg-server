@@ -1,15 +1,21 @@
+import * as grpc from 'grpc'
+
 class Services { 
   crud: any
 
   public constructor(crud: any) {
     this.crud = crud
+    //console.log(crud)
+
+    this.GetById("1",crud)
   }
 
-  public async GetById(ctx: any) {
-    const todo_id = ctx.req.id
-
-    const result = this.crud.GetById(todo_id)
-    ctx.res = result
+  public async GetById(ctx: any, crud:any) {
+      const todo_id = 1
+      //console.log(this.crud.GetById(1))
+      const result = crud.GetById(todo_id)
+      ctx.res = result
+      //resolve(ctx.res = {name: "hola"})
   }
 
   public async GetAll(ctx: any) {

@@ -16,7 +16,7 @@ function main() {
 
   client.getById({id: 1}, (err: any, res: any) => {
     console.log("hello")
-    console.log(res)
+    console.log(res.name)
   })
 }
 

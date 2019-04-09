@@ -2,7 +2,7 @@
   "name": "grpc-node-ts",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/server.js",
+  "main": "./dist/src/server.js",
   "dependencies": {
     "@grpc/proto-loader": "^0.3.0",
     "@types/node": "^11.13.0",
