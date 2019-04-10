@@ -1,6 +1,14 @@
 import { Client } from "pg";
 
-class Postgres {
+export type postgresParams = {
+  user: string
+  host: string
+  port: number
+  database: string
+  password: string
+}
+
+class Postgres  {
   client: any;
   user: string;
   host: string;
@@ -9,19 +17,19 @@ class Postgres {
   password: string;
 
 
-  public constructor() {
-    this.user = "acidlabs"
-    this.host = "localhost";
-    this.port = 5432;
-    this.database = "test";
-    this.password = "";
+  public constructor(params: postgresParams) {
+    this.user = params.user
+    this.host = params.host
+    this.port = params.port
+    this.database = params.database
+    this.password = params.password
 
     this.start()
   }
 
-
   public async start() {
-    this.client = new Client({
+    try {
+      this.client = new Client({
       user: this.user,
       host: this.host,
       database: this.database,
@@ -29,11 +37,19 @@ class Postgres {
       port: this.port
     });
 
-    await this.client.connect();
+      await this.client.connect();
+      return
+    } catch (err) {
+      throw err
+    }
   }
 
   public async stop() {
-    this.client.end();
+    try {
+      this.client.end();
+    } catch (err) {
+      throw err
+    }
   }
 }
 

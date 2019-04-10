@@ -3,20 +3,35 @@ syntax = "proto3";
 package Todo;
 
 service Todos {
+  rpc GetById (GetRequest) returns (GetResponse) {}
+  rpc GetAll (GetAllRequest)  returns (GetAllResponse) {}
   rpc Create (CreateRequest) returns (CreateResponse) {}
   rpc Update (UpdateRequest) returns (UpdateResponse) {}
   rpc Delete (DeleteRequest) returns (DeleteResponse) {}
-  rpc GetById (GetRequest) returns (GetResponse) {}
 }
 
 message Todo {
-  int64 id = 1;
+  int32 id = 1;
   string name = 2;
   bool isDone = 3;
 }
 
-message CreateRequest {
+message GetRequest {
+  int32 id = 1;
+}
+
+message GetResponse {
   Todo data = 1;
+}
+
+message GetAllRequest {}
+
+message GetAllResponse {
+  repeated Todo data = 1;
+}
+
+message CreateRequest {
+  string name = 1;
 }
 
 message CreateResponse {
@@ -24,26 +39,19 @@ message CreateResponse {
 }
 
 message UpdateRequest {
-  Todo data = 1;
+  int32 id = 1;
+  bool isDone = 2;
 }
 
 message UpdateResponse {
   Todo data = 1;
 }
 
-message  DeleteRequest {
-  int64 todo_id = 1;
+message DeleteRequest {
+  int32 id = 1;
 }
 
 message DeleteResponse {
   Todo data = 1;
 }
 
-message GetRequest {
-  int64 todo_id = 1;
-}
-
-message GetResponse {
-  /*string name= 1;*/
-  Todo data = 1;
-}

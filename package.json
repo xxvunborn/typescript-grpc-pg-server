@@ -16,7 +16,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node ./dist/server.js",
-    "dev": "tsc-watch --onsuccess \"node ./dist/server.js\"",
+    "dev": "tsc-watch --onsuccess \"node ./dist/src/server.js\"",
     "test": "jest",
     "testWithCoverage": "jest --coverage"
   },

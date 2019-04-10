@@ -1,7 +1,7 @@
 import * as path from "path";
 import Mali from "mali";
 
-import DB from './database/postgres'
+import DB, { postgresParams } from './database/postgres'
 import CRUD from './database/postgres/crud'
 import SERVICES from "./services/Todo";
 
@@ -17,21 +17,28 @@ class App {
 
   public async start(this: App) {
 
-    const db = new DB(); 
+    const dbParams = <postgresParams> {
+      user: "acidlabs",
+      host: "localhost",
+      port: 5432,
+      database: "test",
+      password: "",
+    }
+
+    const db = new DB(dbParams); 
     const crud = new CRUD(db);
     const services = new SERVICES(crud);
 
     this.server = new Mali(PROTO_PATH, "Todos");
 
     this.server.use({getById: services.GetById});
+    this.server.use({getAll: services.GetAll});
     this.server.use({create: services.Create});
     this.server.use({update: services.Update});
     this.server.use({delete: services.Delete});
 
     this.server.start(`0.0.0.0:${this.port}`);
-    console.log(`Greeter service running at: 0.0.0.0:${this.port}`);
-    //console.log(crud.GetById(1))
-    //console.log(crud)
+    console.log(`Todos service running at: 0.0.0.0:${this.port}`);
   }
 }
 
